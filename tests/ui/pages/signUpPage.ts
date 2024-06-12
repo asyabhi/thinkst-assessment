@@ -29,6 +29,10 @@ export class SignUpPage extends BasePage {
    * The sign up button locator.
    */
   private readonly signUpButton: Locator;
+
+  /**
+   * The error message locator.
+   */
   private readonly errorMessage: Locator;
 
   /**
@@ -89,6 +93,10 @@ export class SignUpPage extends BasePage {
     await this.clickSignUp();
   }
 
+  /**
+   * Verifies if the error message is present.
+   * @returns Promise that resolves when the error message is visible.
+   */
   async verifyErrorMessagePresent() {
     await this.verifyElementVisible(this.errorMessage);
   }

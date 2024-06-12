@@ -4,9 +4,6 @@ import BasePage from "../pages/basePage";
 /**
  * Represents the home page.
  */
-/**
- * A class representing the home page.
- */
 export class HomePage extends BasePage {
   /**
    * The page object.
@@ -61,5 +58,12 @@ export class HomePage extends BasePage {
   async getPageTitle() {
     // Retrieve the title of the page using the page object.
     return await this.page.title();
+  }
+
+  /**
+   * Verifies that the new article button is not visible.
+   */
+  async verifyNewArticleButtonVisible() {
+    await this.verifyElementNotVisible(this.newArticleButton);
   }
 }

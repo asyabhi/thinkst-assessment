@@ -29,6 +29,10 @@ export class NewArticlePage extends BasePage {
    * The publish button.
    */
   private readonly publishButton: Locator;
+  /**
+   * The delete article button.
+   */
+  private readonly deleteArticleButton: Locator;
 
   /**
    * Constructs a new instance of NewArticlePage.
@@ -48,6 +52,7 @@ export class NewArticlePage extends BasePage {
     );
     this.tagsTextbox = page.locator(`input[placeholder="Enter tags"]`);
     this.publishButton = page.locator(`button[type="submit"]`);
+    this.deleteArticleButton = page.locator(`.btn-outline-danger`);
   }
 
   /**
@@ -114,5 +119,13 @@ export class NewArticlePage extends BasePage {
     }
 
     await this.clickPublishButton();
+  }
+
+  /**
+   * Verifies if the delete button is not visible.
+   * @returns Promise that resolves when the delete button is not visible.
+   */
+  async verifyDeleteButtonNotVisible() {
+    await this.verifyElementNotVisible(this.deleteArticleButton);
   }
 }
